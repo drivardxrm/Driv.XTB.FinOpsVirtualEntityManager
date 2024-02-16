@@ -25,6 +25,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="Driv.XTB.FinOpsVirtualEntityManager\bin\Release\Driv.XTB.FinOpsVirtualEntityManager.dll" target="lib\net452\Plugins" />
+    <file src="Driv.XTB.FinOpsVirtualEntityManager\bin\Release\Driv.XTB.FinOpsVirtualEntityManager.dll" target="lib\net452\Plugins"/>
   </files>
 </package>
