@@ -1,0 +1,30 @@
+﻿﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Driv.XTB.FinOpsVirtualEntityManager</id>
+    <version>1.0.0</version>
+    <title>Finance and Operations Virtual Entity Manager for XrmToolBox</title>
+    <authors>David Rivard</authors>
+    <owners>drivardxrm</owners>
+    <projectUrl>https://github.com/drivardxrm/Driv.XTB.FinOpsVirtualEntityManager</projectUrl>
+    <iconUrl>https://github.com/drivardxrm/Driv.XTB.FinOpsVirtualEntityManager/blob/main/Images/icons8-vr-64.png?raw=true</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Manage Finance and Operations virtual entities</summary>
+    <description>
+        Manage visibility of Finance and Operations virtual entities in Dataverse.
+        Manage change tracking of Finance and Operation entitities.
+    </description>
+    <releaseNotes>
+      Full release notes:
+      https://github.com/drivardxrm/Driv.XTB.FinOpsVirtualEntityManager/releases/latest
+    </releaseNotes>
+    <copyright>Copyright David Rivard 2024</copyright>
+    <tags>XrmToolBox Plugins Dataverse Virtual Entity Finance and Operations</tags>
+    <dependencies>
+      <dependency id="XrmToolBox" version="1.2021.9.52" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Driv.XTB.FinOpsVirtualEntityManager\bin\Release\Driv.XTB.FinOpsVirtualEntityManager.dll" target="lib\net452\Plugins" />
+  </files>
+</package>
