@@ -210,9 +210,11 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
 
 
             txtPhysicalName.Entity = _selectedFinOpsEntity?.FinOpsEntityRow;
-            chkVisible.Checked = _selectedFinOpsEntity?.IsVisible ?? false;
-            chkChangeTracking.Checked = _selectedFinOpsEntity?.ChangeTrackingEnabled ?? false;
-            chkRefresh.Checked = _selectedFinOpsEntity?.Refresh ?? false;
+            switchVisible.Checked = _selectedFinOpsEntity?.IsVisible ?? false;
+            switchChangeTracking.Checked = _selectedFinOpsEntity?.ChangeTrackingEnabled ?? false;
+            switchRefresh.Checked = _selectedFinOpsEntity?.Refresh ?? false;
+
+
             SetUpdateButtonVisible();
         }
 
@@ -223,9 +225,9 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
 
         private void SetUpdateButtonVisible()
         {
-            btnUpdate.Visible = chkVisible.Checked != _selectedFinOpsEntity?.IsVisible 
-                                || chkChangeTracking.Checked != _selectedFinOpsEntity?.ChangeTrackingEnabled
-                                || chkRefresh.Checked != _selectedFinOpsEntity?.Refresh;
+            btnUpdate.Visible = switchVisible.Checked != _selectedFinOpsEntity?.IsVisible 
+                                || switchChangeTracking.Checked != _selectedFinOpsEntity?.ChangeTrackingEnabled
+                                || switchRefresh.Checked != _selectedFinOpsEntity?.Refresh;
 
         }
 
@@ -234,19 +236,19 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             var finOpsEntityToUpdate = new Entity(FinOpsEntity.EntityName, _selectedFinOpsEntity.FinOpsEntityRow.Id);
             var shouldUpdate = false;
             //Update only if needed
-            if (_selectedFinOpsEntity.IsVisible != chkVisible.Checked)
+            if (_selectedFinOpsEntity.IsVisible != switchVisible.Checked)
             {
-                finOpsEntityToUpdate[FinOpsEntity.Visible] = chkVisible.Checked;
+                finOpsEntityToUpdate[FinOpsEntity.Visible] = switchVisible.Checked;
                 shouldUpdate = true;
             };
-            if (_selectedFinOpsEntity.ChangeTrackingEnabled != chkChangeTracking.Checked)
+            if (_selectedFinOpsEntity.ChangeTrackingEnabled != switchChangeTracking.Checked)
             {
-                finOpsEntityToUpdate[FinOpsEntity.ChangeTracking] = chkChangeTracking.Checked;
+                finOpsEntityToUpdate[FinOpsEntity.ChangeTracking] = switchChangeTracking.Checked;
                 shouldUpdate = true;
             };
-            if (_selectedFinOpsEntity.Refresh != chkRefresh.Checked)
+            if (_selectedFinOpsEntity.Refresh != switchRefresh.Checked)
             {
-                finOpsEntityToUpdate[FinOpsEntity.Refresh] = chkRefresh.Checked;
+                finOpsEntityToUpdate[FinOpsEntity.Refresh] = switchRefresh.Checked;
                 shouldUpdate = true;
             };
             if (shouldUpdate) 
@@ -314,17 +316,21 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             SetGridFinOpsEntitiesDataSource();
         }
 
-        private void chkVisible_CheckedChanged(object sender, EventArgs e)
+        
+
+       
+
+        private void switchVisible_OnCheckedChanged(object sender, EventArgs e)
         {
             SetUpdateButtonVisible();
         }
 
-        private void chkChangeTracking_CheckedChanged(object sender, EventArgs e)
+        private void switchChangeTracking_OnCheckedChanged(object sender, EventArgs e)
         {
             SetUpdateButtonVisible();
         }
 
-        private void chkRefresh_CheckedChanged(object sender, EventArgs e)
+        private void switchRefresh_OnCheckedChanged(object sender, EventArgs e)
         {
             SetUpdateButtonVisible();
         }

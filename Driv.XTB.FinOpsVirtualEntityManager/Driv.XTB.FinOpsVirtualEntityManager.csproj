@@ -261,6 +261,12 @@
     <Compile Include="Controls\ImageGroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\SwitchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SwitchControl.designer.cs">
+      <DependentUpon>SwitchControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\FinOpsEntity.cs" />
     <Compile Include="FinOpsVirtualEntityManagerPlugin.cs" />
     <Compile Include="FinOpsVirtualEntityManagerControl.cs">
@@ -272,6 +278,7 @@
     <Compile Include="Forms\About.designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Extensions.cs" />
     <Compile Include="Helper\FinOpsEntityHelper.cs" />
     <Compile Include="FinOpsVirtualEntityManagerControl.designer.cs">
       <DependentUpon>FinOpsVirtualEntityManagerControl.cs</DependentUpon>
@@ -301,6 +308,9 @@
     <EmbeddedResource Include="Controls\ImageGroupBox.resx">
       <DependentUpon>ImageGroupBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SwitchControl.resx">
+      <DependentUpon>SwitchControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FinOpsVirtualEntityManagerControl.resx">
       <DependentUpon>FinOpsVirtualEntityManagerControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -326,6 +336,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-vr-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\on-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\off-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-change-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-visible-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-refresh-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-refresh-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FinOps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-update-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
