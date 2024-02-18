@@ -115,6 +115,10 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
 
                 ExecuteMethod(InitializeService);
+                _filteredFinOpsEntities = null;
+                _selectedFinOpsEntity = null;
+                SetSelectedEntity(Guid.Empty);
+                gridAvailableEntities.DataSource = null;
 
             }
         }
@@ -411,22 +415,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             throw new NotImplementedException();
         }
 
-        private void linkLabel1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Change the color of the link text by setting LinkVisited
-                // to true.
-                linkLabel1.LinkVisited = true;
-                //Call the Process.Start method to open the default browser
-                //with a URL:
-                System.Diagnostics.Process.Start("https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/power-platform/virtual-entities-overview?WT.mc_id=DX-MVP-5004959");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Unable to open link that was clicked.");
-            }
-        }
+       
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
