@@ -15,7 +15,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager.Helper
     {
 
         public static Entity GetFinOpsEntity(this IOrganizationService service, Guid finOpsEntityId)
-            => service.Retrieve(FinOpsEntity.EntityName, finOpsEntityId, new ColumnSet() { AllColumns = true });
+            => finOpsEntityId == Guid.Empty ? null : service.Retrieve(FinOpsEntity.EntityName, finOpsEntityId, new ColumnSet() { AllColumns = true });
 
 
         // NOTE : LIMIT of 5000, should be ok

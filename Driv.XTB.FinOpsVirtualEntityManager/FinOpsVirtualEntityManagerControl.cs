@@ -47,9 +47,11 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
 
         private void FinOpsVirtualEntityManagerControl_Load(object sender, EventArgs e)
         {
+            lblConnection.Text = ConnectionDetail?.WebApplicationUrl;
             LoadGlobalSettings();
             LoadConnectionSettings();
             ExecuteMethod(InitializeService);
+            
         }
 
         private void LoadGlobalSettings()
@@ -69,7 +71,8 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
 
         private void LoadConnectionSettings()
         {
-            if (!SettingsManager.Instance.TryLoad(GetType(), out _connectionsettings, ConnectionDetail.ConnectionId.ToString()))
+            
+            if (!SettingsManager.Instance.TryLoad(GetType(), out _connectionsettings, ConnectionDetail?.ConnectionId.ToString()))
             {
                 _connectionsettings = new Settings();
 
@@ -103,7 +106,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         {
             base.UpdateConnection(newService, detail, actionName, parameter);
 
-
+            lblConnection.Text = ConnectionDetail?.WebApplicationUrl;
             if (_globalsettings != null && detail != null)
             {
                 LoadConnectionSettings();
@@ -111,18 +114,15 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                 _globalsettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
 
-
-
-
-                //ExecuteMethod(InitializeService);
-
-
+                ExecuteMethod(InitializeService);
 
             }
         }
 
         private void menuLoad_Click(object sender, EventArgs e)
         {
+            _selectedFinOpsEntity = null;
+            SetSelectedEntity(Guid.Empty);
             ExecuteMethod(LoadAvailableFinOpsEntities);
         }
 
@@ -149,11 +149,6 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
 
         private void LoadAvailableFinOpsEntities()
         {
-
-
-
-
-
             WorkAsync(new WorkAsyncInfo
             {
                 Message = "Loading Finance and Operations available entities...",
@@ -192,7 +187,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                             _allFinOpsEntities = new EntityCollection();
                         }
 
-                        if (_allFinOpsEntities.TotalRecordCount == 0)
+                        if (_allFinOpsEntities.Entities.Count == 0)
                         {
                             pnlFinOpsNotFound.Visible = true;
                             imgGroupEntities.Enabled = false;
@@ -201,6 +196,12 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                         {
                             pnlFinOpsNotFound.Visible = false;
                             imgGroupEntities.Enabled= true;
+                        }
+
+                        //refresh selected entity / will refresh the form after update
+                        if (_selectedFinOpsEntity != null) 
+                        {
+                            SetSelectedEntity(_selectedFinOpsEntity.FinOpsEntityRow.Id);
                         }
 
                     }
@@ -213,10 +214,9 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         {
             gridAvailableEntities.RecordEnter -= new CRMRecordEventHandler(gridAvailableEntities_RecordEnter);
             gridAvailableEntities.DataSource = _filteredFinOpsEntities;
-
-            gridAvailableEntities.Columns[1].Width = 25;
+            gridAvailableEntities.RowHeadersWidth = 24;
             gridAvailableEntities.Columns[2].HeaderText = "Physical Name";
-            gridAvailableEntities.Columns[2].Width = 250;
+            gridAvailableEntities.Columns[2].Width = 280;
             
             gridAvailableEntities.Columns[3].HeaderText = "Visible (Virtual Enabled)";
             gridAvailableEntities.Columns[3].Width = 100;
@@ -233,6 +233,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
 
         private void SetSelectedEntity(Guid selectedEntityId)
         {
+            
             var selectedEntity = Service.GetFinOpsEntity(selectedEntityId);
 
 
