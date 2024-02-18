@@ -9,10 +9,11 @@
     <projectUrl>https://github.com/drivardxrm/Driv.XTB.FinOpsVirtualEntityManager</projectUrl>
     <iconUrl>https://github.com/drivardxrm/Driv.XTB.FinOpsVirtualEntityManager/blob/main/Images/icons8-vr-64.png?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <summary>Manage Finance and Operations virtual entities</summary>
+    <summary>Manage Finance and Operations virtual entities in linked Dataverse environments</summary>
     <description>
         Manage visibility of Finance and Operations virtual entities in Dataverse.
         Manage change tracking of Finance and Operation entities.
+        Refresh virtual entities metadata.
     </description>
     <releaseNotes>
       Full release notes:
