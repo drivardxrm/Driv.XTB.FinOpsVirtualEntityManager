@@ -15,3 +15,5 @@ XrmToolBox tool to manage Finance and Operations Dataverse Virtual Entities
 ![image](https://github.com/drivardxrm/Driv.XTB.FinOpsVirtualEntityManager/assets/38399134/4709d018-ea0a-496a-b365-37cb92fa53ec)
 
 
+![metadatabrowsercompanion](https://github.com/drivardxrm/Driv.XTB.FinOpsVirtualEntityManager/assets/38399134/f427f54c-3c70-4c5e-9ee2-9cbccabcdaca)
+
