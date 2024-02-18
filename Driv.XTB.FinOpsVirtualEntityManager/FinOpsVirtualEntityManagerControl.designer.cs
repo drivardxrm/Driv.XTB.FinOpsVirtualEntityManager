@@ -149,9 +149,9 @@
             this.imgGroupEntities.Enabled = false;
             this.imgGroupEntities.Icon = ((System.Drawing.Icon)(resources.GetObject("imgGroupEntities.Icon")));
             this.imgGroupEntities.Location = new System.Drawing.Point(2, 34);
-            this.imgGroupEntities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgGroupEntities.Margin = new System.Windows.Forms.Padding(2);
             this.imgGroupEntities.Name = "imgGroupEntities";
-            this.imgGroupEntities.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgGroupEntities.Padding = new System.Windows.Forms.Padding(2);
             this.imgGroupEntities.Size = new System.Drawing.Size(933, 838);
             this.imgGroupEntities.TabIndex = 108;
             this.imgGroupEntities.TabStop = false;
@@ -164,7 +164,7 @@
             this.pnlFinOpsNotFound.Controls.Add(this.pictureBox5);
             this.pnlFinOpsNotFound.Location = new System.Drawing.Point(320, 17);
             this.pnlFinOpsNotFound.Name = "pnlFinOpsNotFound";
-            this.pnlFinOpsNotFound.Size = new System.Drawing.Size(599, 23);
+            this.pnlFinOpsNotFound.Size = new System.Drawing.Size(479, 23);
             this.pnlFinOpsNotFound.TabIndex = 109;
             this.pnlFinOpsNotFound.Visible = false;
             // 
@@ -173,16 +173,16 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(27, 5);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(445, 13);
+            this.label10.Size = new System.Drawing.Size(439, 13);
             this.label10.TabIndex = 109;
             this.label10.Text = "A linked Finance and Operations environment was not found on this Dataverse envir" +
-    "onement";
+    "onment";
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_error_20;
             this.pictureBox5.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(24, 19);
             this.pictureBox5.TabIndex = 108;
@@ -191,7 +191,7 @@
             // txtFilter
             // 
             this.txtFilter.Location = new System.Drawing.Point(107, 57);
-            this.txtFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFilter.Margin = new System.Windows.Forms.Padding(2);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(200, 20);
             this.txtFilter.TabIndex = 104;
@@ -201,7 +201,7 @@
             // 
             this.pictureBox6.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_connected_20;
             this.pictureBox6.Location = new System.Drawing.Point(16, 33);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(17, 20);
             this.pictureBox6.TabIndex = 120;
@@ -221,7 +221,7 @@
             // 
             this.chkShowChangeTracking.AutoSize = true;
             this.chkShowChangeTracking.Location = new System.Drawing.Point(333, 60);
-            this.chkShowChangeTracking.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkShowChangeTracking.Margin = new System.Windows.Forms.Padding(2);
             this.chkShowChangeTracking.Name = "chkShowChangeTracking";
             this.chkShowChangeTracking.Size = new System.Drawing.Size(162, 17);
             this.chkShowChangeTracking.TabIndex = 119;
@@ -246,9 +246,9 @@
             this.imgBoxSelectedEntity.Enabled = false;
             this.imgBoxSelectedEntity.Icon = ((System.Drawing.Icon)(resources.GetObject("imgBoxSelectedEntity.Icon")));
             this.imgBoxSelectedEntity.Location = new System.Drawing.Point(547, 67);
-            this.imgBoxSelectedEntity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgBoxSelectedEntity.Margin = new System.Windows.Forms.Padding(2);
             this.imgBoxSelectedEntity.Name = "imgBoxSelectedEntity";
-            this.imgBoxSelectedEntity.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgBoxSelectedEntity.Padding = new System.Windows.Forms.Padding(2);
             this.imgBoxSelectedEntity.Size = new System.Drawing.Size(361, 225);
             this.imgBoxSelectedEntity.TabIndex = 107;
             this.imgBoxSelectedEntity.TabStop = false;
@@ -264,7 +264,7 @@
             this.txtPhysicalName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
             this.txtPhysicalName.Location = new System.Drawing.Point(92, 39);
             this.txtPhysicalName.LogicalName = "mserp_financeandoperationsentity";
-            this.txtPhysicalName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPhysicalName.Margin = new System.Windows.Forms.Padding(2);
             this.txtPhysicalName.Name = "txtPhysicalName";
             this.txtPhysicalName.OrganizationService = null;
             this.txtPhysicalName.Size = new System.Drawing.Size(248, 23);
@@ -294,7 +294,7 @@
             // 
             this.pictureBox4.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_refresh_32;
             this.pictureBox4.Location = new System.Drawing.Point(17, 137);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(35, 34);
             this.pictureBox4.TabIndex = 116;
@@ -329,7 +329,7 @@
             // 
             this.pictureBox2.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_visible_32;
             this.pictureBox2.Location = new System.Drawing.Point(17, 70);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 34);
             this.pictureBox2.TabIndex = 107;
@@ -340,7 +340,7 @@
             this.switchVisible.Checked = false;
             this.switchVisible.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.switchVisible.Location = new System.Drawing.Point(247, 72);
-            this.switchVisible.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.switchVisible.Margin = new System.Windows.Forms.Padding(4);
             this.switchVisible.Name = "switchVisible";
             this.switchVisible.Size = new System.Drawing.Size(90, 32);
             this.switchVisible.TabIndex = 109;
@@ -350,7 +350,7 @@
             // 
             this.pictureBox3.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_change_32;
             this.pictureBox3.Location = new System.Drawing.Point(17, 104);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(35, 34);
             this.pictureBox3.TabIndex = 114;
@@ -361,7 +361,7 @@
             this.switchRefresh.Checked = false;
             this.switchRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.switchRefresh.Location = new System.Drawing.Point(247, 139);
-            this.switchRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.switchRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.switchRefresh.Name = "switchRefresh";
             this.switchRefresh.Size = new System.Drawing.Size(90, 32);
             this.switchRefresh.TabIndex = 110;
@@ -372,7 +372,7 @@
             this.switchChangeTracking.Checked = false;
             this.switchChangeTracking.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.switchChangeTracking.Location = new System.Drawing.Point(247, 106);
-            this.switchChangeTracking.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.switchChangeTracking.Margin = new System.Windows.Forms.Padding(4);
             this.switchChangeTracking.Name = "switchChangeTracking";
             this.switchChangeTracking.Size = new System.Drawing.Size(90, 32);
             this.switchChangeTracking.TabIndex = 111;
@@ -402,9 +402,9 @@
             this.imgGroupVirtual.Enabled = false;
             this.imgGroupVirtual.Icon = ((System.Drawing.Icon)(resources.GetObject("imgGroupVirtual.Icon")));
             this.imgGroupVirtual.Location = new System.Drawing.Point(547, 296);
-            this.imgGroupVirtual.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgGroupVirtual.Margin = new System.Windows.Forms.Padding(2);
             this.imgGroupVirtual.Name = "imgGroupVirtual";
-            this.imgGroupVirtual.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imgGroupVirtual.Padding = new System.Windows.Forms.Padding(2);
             this.imgGroupVirtual.Size = new System.Drawing.Size(361, 225);
             this.imgGroupVirtual.TabIndex = 118;
             this.imgGroupVirtual.TabStop = false;
@@ -450,7 +450,7 @@
             this.txtVirtualReportViewName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
             this.txtVirtualReportViewName.Location = new System.Drawing.Point(108, 120);
             this.txtVirtualReportViewName.LogicalName = "entity";
-            this.txtVirtualReportViewName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtVirtualReportViewName.Margin = new System.Windows.Forms.Padding(2);
             this.txtVirtualReportViewName.Name = "txtVirtualReportViewName";
             this.txtVirtualReportViewName.OrganizationService = null;
             this.txtVirtualReportViewName.Size = new System.Drawing.Size(232, 20);
@@ -466,7 +466,7 @@
             this.txtVirtualLocalizedName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
             this.txtVirtualLocalizedName.Location = new System.Drawing.Point(108, 93);
             this.txtVirtualLocalizedName.LogicalName = "entity";
-            this.txtVirtualLocalizedName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtVirtualLocalizedName.Margin = new System.Windows.Forms.Padding(2);
             this.txtVirtualLocalizedName.Name = "txtVirtualLocalizedName";
             this.txtVirtualLocalizedName.OrganizationService = null;
             this.txtVirtualLocalizedName.Size = new System.Drawing.Size(232, 20);
@@ -482,7 +482,7 @@
             this.txtVirtualExternalName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
             this.txtVirtualExternalName.Location = new System.Drawing.Point(108, 66);
             this.txtVirtualExternalName.LogicalName = "entity";
-            this.txtVirtualExternalName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtVirtualExternalName.Margin = new System.Windows.Forms.Padding(2);
             this.txtVirtualExternalName.Name = "txtVirtualExternalName";
             this.txtVirtualExternalName.OrganizationService = null;
             this.txtVirtualExternalName.Size = new System.Drawing.Size(232, 20);
@@ -498,7 +498,7 @@
             this.txtVirtualLogicalName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
             this.txtVirtualLogicalName.Location = new System.Drawing.Point(108, 39);
             this.txtVirtualLogicalName.LogicalName = "entity";
-            this.txtVirtualLogicalName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtVirtualLogicalName.Margin = new System.Windows.Forms.Padding(2);
             this.txtVirtualLogicalName.Name = "txtVirtualLogicalName";
             this.txtVirtualLogicalName.OrganizationService = null;
             this.txtVirtualLogicalName.Size = new System.Drawing.Size(232, 20);
@@ -533,7 +533,7 @@
             // 
             this.chkShowVisible.AutoSize = true;
             this.chkShowVisible.Location = new System.Drawing.Point(333, 40);
-            this.chkShowVisible.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkShowVisible.Margin = new System.Windows.Forms.Padding(2);
             this.chkShowVisible.Name = "chkShowVisible";
             this.chkShowVisible.Size = new System.Drawing.Size(219, 17);
             this.chkShowVisible.TabIndex = 103;
@@ -601,7 +601,7 @@
             // 
             this.pictureBox1.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_filter_20;
             this.pictureBox1.Location = new System.Drawing.Point(88, 56);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(17, 20);
             this.pictureBox1.TabIndex = 106;
