@@ -6,6 +6,7 @@
     <title>Finance and Operations Virtual Entity Manager for XrmToolBox</title>
     <authors>David Rivard</authors>
     <owners>drivardxrm</owners>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/drivardxrm/Driv.XTB.FinOpsVirtualEntityManager</projectUrl>
     <iconUrl>https://github.com/drivardxrm/Driv.XTB.FinOpsVirtualEntityManager/blob/main/Images/icons8-vr-64.png?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
