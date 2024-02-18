@@ -365,6 +365,15 @@
   <ItemGroup>
     <None Include="Resources\mscrmtools.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-error-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-error-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-load-321.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>ilmerge.exe /target:library /targetplatform:v4,"C:\Windows\Microsoft.NET\Framework\v4.0.30319" "/out:Driv.XTB.FinOpsVirtualEntityManager.dll" "$(TargetFileName)"  "xrmtb.XrmToolBox.Controls.dll"

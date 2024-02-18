@@ -156,7 +156,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
 
             WorkAsync(new WorkAsyncInfo
             {
-                Message = "Loading FinOps available entities...",
+                Message = "Loading Finance and Operations available entities...",
                 Work = (worker, args) =>
                 {
                     args.Result = Service.GetFinOpsEntities();
@@ -191,6 +191,18 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                         {
                             _allFinOpsEntities = new EntityCollection();
                         }
+
+                        if (_allFinOpsEntities.TotalRecordCount == 0)
+                        {
+                            pnlFinOpsNotFound.Visible = true;
+                            imgGroupEntities.Enabled = false;
+                        }
+                        else 
+                        {
+                            pnlFinOpsNotFound.Visible = false;
+                            imgGroupEntities.Enabled= true;
+                        }
+
                     }
                 }
             });
@@ -201,6 +213,8 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         {
             gridAvailableEntities.RecordEnter -= new CRMRecordEventHandler(gridAvailableEntities_RecordEnter);
             gridAvailableEntities.DataSource = _filteredFinOpsEntities;
+
+            gridAvailableEntities.Columns[1].Width = 25;
             gridAvailableEntities.Columns[2].HeaderText = "Physical Name";
             gridAvailableEntities.Columns[2].Width = 250;
             
@@ -410,6 +424,21 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             throw new NotImplementedException();
         }
 
-        
+        private void linkLabel1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Change the color of the link text by setting LinkVisited
+                // to true.
+                linkLabel1.LinkVisited = true;
+                //Call the Process.Start method to open the default browser
+                //with a URL:
+                System.Diagnostics.Process.Start("https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/power-platform/virtual-entities-overview?WT.mc_id=DX-MVP-5004959");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link that was clicked.");
+            }
+        }
     }
 }

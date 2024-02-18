@@ -83,6 +83,26 @@ namespace Driv.XTB.FinOpsVirtualEntityManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_error_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-error-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_error_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-error-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_filter_20 {
             get {
                 object obj = ResourceManager.GetObject("icons8-filter-20", resourceCulture);
@@ -96,6 +116,16 @@ namespace Driv.XTB.FinOpsVirtualEntityManager.Properties {
         internal static System.Drawing.Bitmap icons8_load_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-load-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_load_321 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-load-321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

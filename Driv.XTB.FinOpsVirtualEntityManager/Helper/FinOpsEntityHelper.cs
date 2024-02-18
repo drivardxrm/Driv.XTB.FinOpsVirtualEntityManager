@@ -21,7 +21,10 @@ namespace Driv.XTB.FinOpsVirtualEntityManager.Helper
         // NOTE : LIMIT of 5000, should be ok
         public static EntityCollection GetFinOpsEntities(this IOrganizationService service)
         {
-            var fetchXml = $@"<?xml version='1.0' encoding='utf-16'?>
+
+            try
+            {
+                var fetchXml = $@"<?xml version='1.0' encoding='utf-16'?>
                                 <fetch>
                                   <entity name='mserp_financeandoperationsentity'>
                                     <attribute name='mserp_changetrackingenabled' />
@@ -34,8 +37,18 @@ namespace Driv.XTB.FinOpsVirtualEntityManager.Helper
                                 </fetch>";
 
 
-            var fetch = new FetchExpression(fetchXml);
-            return service.RetrieveMultiple(fetch);
+                var fetch = new FetchExpression(fetchXml);
+                return service.RetrieveMultiple(fetch);
+
+            }
+            // will crash if FinOps not enabled on the environment
+            // Works for now, but try to find a more elegant way and mot supress other errors
+            catch (Exception)
+            {
+
+                return null;
+            }
+            
         }
 
        
