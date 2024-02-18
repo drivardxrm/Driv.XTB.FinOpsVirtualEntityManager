@@ -119,6 +119,8 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             }
         }
 
+
+
         private void menuLoad_Click(object sender, EventArgs e)
         {
             _selectedFinOpsEntity = null;
@@ -128,23 +130,12 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
 
         private void InitializeService()
         {
-
-
-
-
-
             gridAvailableEntities.OrganizationService = Service;
             txtPhysicalName.OrganizationService = Service;
             txtVirtualLogicalName.OrganizationService = Service;
             txtVirtualExternalName.OrganizationService = Service;
             txtVirtualLocalizedName.OrganizationService = Service;
             txtVirtualReportViewName.OrganizationService = Service;
-
-
-
-
-
-
         }
 
         private void LoadAvailableFinOpsEntities()
@@ -171,16 +162,20 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                             //Find the index of the selected API in the list
                             FilterResults();
                             SetGridFinOpsEntitiesDataSource();
-                            SetUpdateButtonVisible();
+                            SetUpdateButtonEnabled();
 
-                            //hack to force a refresh... must be a better way
+                            //find the current selected entity in the list , if not found set to null
                             var index = _filteredFinOpsEntities.Entities.Select(e => e.Id).ToList().IndexOf(_selectedFinOpsEntity?.FinOpsEntityRow.Id ?? Guid.Empty);
-                            //if (gridAvailableEntities.SelectedRows.Contains().SelectedIndex == index)
-                            //{
-                            //    cdsCboCustomApi.SelectedIndex = -1;
-                            //}
-                            //cdsCboCustomApi.SelectedIndex = index;
-                            //cdsCboCustomApi.Enabled = true;
+                            if (index < 0)
+                            {
+                                SetSelectedEntity(Guid.Empty);
+                            }
+                            else 
+                            {
+                                //gridAvailableEntities.CurrentCell = gridAvailableEntities.Rows[index].Cells[0];
+                                gridAvailableEntities.Rows[index].Selected = true;
+                                gridAvailableEntities.CurrentCell = gridAvailableEntities[2, index];
+                            }
                         }
                         else
                         {
@@ -227,7 +222,6 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
 
         private void gridAvailableEntities_RecordEnter(object sender, CRMRecordEventArgs e)
         {
-            
             SetSelectedEntity(e.Entity.Id);
         }
 
@@ -250,7 +244,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
 
             SetVirtalEntityMetadata();
 
-            SetUpdateButtonVisible();
+            SetUpdateButtonEnabled();
         }
 
         private void SetVirtalEntityMetadata()
@@ -269,9 +263,9 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             UpdateFinOpsEntity();
         }
 
-        private void SetUpdateButtonVisible()
+        private void SetUpdateButtonEnabled()
         {
-            btnUpdate.Visible = switchVisible.Checked != _selectedFinOpsEntity?.IsVisible
+            btnUpdate.Enabled = switchVisible.Checked != _selectedFinOpsEntity?.IsVisible
                                 || switchChangeTracking.Checked != _selectedFinOpsEntity?.ChangeTrackingEnabled
                                 || switchRefresh.Checked != _selectedFinOpsEntity?.Refresh;
 
@@ -319,12 +313,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                         }
                     }
                 });
-
-
-
-
             }
-
         }
 
         private void tslAbout_Click(object sender, EventArgs e)
@@ -373,22 +362,19 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         }
 
 
-
-
-
         private void switchVisible_OnCheckedChanged(object sender, EventArgs e)
         {
-            SetUpdateButtonVisible();
+            SetUpdateButtonEnabled();
         }
 
         private void switchChangeTracking_OnCheckedChanged(object sender, EventArgs e)
         {
-            SetUpdateButtonVisible();
+            SetUpdateButtonEnabled();
         }
 
         private void switchRefresh_OnCheckedChanged(object sender, EventArgs e)
         {
-            SetUpdateButtonVisible();
+            SetUpdateButtonEnabled();
         }
 
         private void gridAvailableEntities_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -432,6 +418,22 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                 // Change the color of the link text by setting LinkVisited
                 // to true.
                 linkLabel1.LinkVisited = true;
+                //Call the Process.Start method to open the default browser
+                //with a URL:
+                System.Diagnostics.Process.Start("https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/power-platform/virtual-entities-overview?WT.mc_id=DX-MVP-5004959");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link that was clicked.");
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Change the color of the link text by setting LinkVisited
+                // to true.
                 //Call the Process.Start method to open the default browser
                 //with a URL:
                 System.Diagnostics.Process.Start("https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/power-platform/virtual-entities-overview?WT.mc_id=DX-MVP-5004959");

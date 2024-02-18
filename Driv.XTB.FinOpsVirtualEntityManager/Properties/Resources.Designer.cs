@@ -123,6 +123,16 @@ namespace Driv.XTB.FinOpsVirtualEntityManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_hyperlink_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-hyperlink-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_load_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-load-32", resourceCulture);

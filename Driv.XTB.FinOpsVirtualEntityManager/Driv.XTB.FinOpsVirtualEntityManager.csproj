@@ -383,6 +383,9 @@
   <ItemGroup>
     <None Include="Resources\icons8-connected-20.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-hyperlink-20.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>ilmerge.exe /target:library /targetplatform:v4,"C:\Windows\Microsoft.NET\Framework\v4.0.30319" "/out:Driv.XTB.FinOpsVirtualEntityManager.dll" "$(TargetFileName)"  "xrmtb.XrmToolBox.Controls.dll"
