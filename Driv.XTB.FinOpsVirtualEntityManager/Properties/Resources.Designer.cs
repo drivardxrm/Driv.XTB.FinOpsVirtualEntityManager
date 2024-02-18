@@ -173,6 +173,16 @@ namespace Driv.XTB.FinOpsVirtualEntityManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mscrmtools {
+            get {
+                object obj = ResourceManager.GetObject("mscrmtools", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap off_button {
             get {
                 object obj = ResourceManager.GetObject("off_button", resourceCulture);

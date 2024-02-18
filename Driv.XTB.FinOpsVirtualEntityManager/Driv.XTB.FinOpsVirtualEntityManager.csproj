@@ -279,6 +279,7 @@
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\Extensions.cs" />
+    <Compile Include="Helper\VirtualEntityMetadataHelper.cs" />
     <Compile Include="Helper\FinOpsEntityHelper.cs" />
     <Compile Include="FinOpsVirtualEntityManagerControl.designer.cs">
       <DependentUpon>FinOpsVirtualEntityManagerControl.cs</DependentUpon>
@@ -360,6 +361,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-update-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mscrmtools.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

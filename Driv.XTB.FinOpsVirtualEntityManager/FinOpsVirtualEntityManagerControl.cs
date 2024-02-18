@@ -23,7 +23,7 @@ using XrmToolBox.Extensibility.Interfaces;
 
 namespace Driv.XTB.FinOpsVirtualEntityManager
 {
-    public partial class FinOpsVirtualEntityManagerControl : PluginControlBase, IGitHubPlugin
+    public partial class FinOpsVirtualEntityManagerControl : PluginControlBase, IGitHubPlugin, IMessageBusHost
     {
         //private Settings mySettings;
         private Settings _globalsettings;
@@ -32,10 +32,13 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         private EntityCollection _allFinOpsEntities = new EntityCollection();
         private EntityCollection _filteredFinOpsEntities = new EntityCollection();
         private FinOpsEntityProxy _selectedFinOpsEntity;
+        private Entity _selectedVirtualEntityMetadata;
 
         public string RepositoryName => "Driv.XTB.FinOpsVirtualEntityManager";
 
         public string UserName => "drivardxrm";
+
+        public event EventHandler<MessageBusEventArgs> OnOutgoingMessage;
 
         public FinOpsVirtualEntityManagerControl()
         {
@@ -78,9 +81,9 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             }
         }
 
-        
 
-       
+
+
 
         /// <summary>
         /// This event occurs when the plugin is closed
@@ -108,13 +111,13 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                 _globalsettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
 
-               
+
 
 
                 //ExecuteMethod(InitializeService);
 
 
-                
+
             }
         }
 
@@ -131,11 +134,15 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
 
 
             gridAvailableEntities.OrganizationService = Service;
+            txtPhysicalName.OrganizationService = Service;
+            txtVirtualLogicalName.OrganizationService = Service;
+            txtVirtualExternalName.OrganizationService = Service;
+            txtVirtualLocalizedName.OrganizationService = Service;
+            txtVirtualReportViewName.OrganizationService = Service;
 
-            
 
 
-    
+
 
 
         }
@@ -143,7 +150,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         private void LoadAvailableFinOpsEntities()
         {
 
-            
+
 
 
 
@@ -194,38 +201,62 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         {
             gridAvailableEntities.RecordEnter -= new CRMRecordEventHandler(gridAvailableEntities_RecordEnter);
             gridAvailableEntities.DataSource = _filteredFinOpsEntities;
+            gridAvailableEntities.Columns[2].HeaderText = "Physical Name";
+            gridAvailableEntities.Columns[2].Width = 250;
+            
+            gridAvailableEntities.Columns[3].HeaderText = "Visible (Virtual Enabled)";
+            gridAvailableEntities.Columns[3].Width = 100;
+            gridAvailableEntities.Columns[4].HeaderText = "Change Tracking Enabled";
+            gridAvailableEntities.Columns[4].Width = 100;
             gridAvailableEntities.RecordEnter += new CRMRecordEventHandler(gridAvailableEntities_RecordEnter);
         }
 
         private void gridAvailableEntities_RecordEnter(object sender, CRMRecordEventArgs e)
         {
-            SetSelectedEntity(Service.GetFinOpsEntity(e.Entity.Id));
+            
+            SetSelectedEntity(e.Entity.Id);
         }
 
-        private void SetSelectedEntity(Entity availableEntity)
+        private void SetSelectedEntity(Guid selectedEntityId)
         {
-            imgBoxSelectedEntity.Enabled = availableEntity != null;
-            _selectedFinOpsEntity = availableEntity != null ? new FinOpsEntityProxy(availableEntity) : null;
+            var selectedEntity = Service.GetFinOpsEntity(selectedEntityId);
+
+
+            imgBoxSelectedEntity.Enabled = selectedEntity != null;
+            _selectedFinOpsEntity = selectedEntity != null ? new FinOpsEntityProxy(selectedEntity) : null;
 
 
 
             txtPhysicalName.Entity = _selectedFinOpsEntity?.FinOpsEntityRow;
+            
             switchVisible.Checked = _selectedFinOpsEntity?.IsVisible ?? false;
             switchChangeTracking.Checked = _selectedFinOpsEntity?.ChangeTrackingEnabled ?? false;
             switchRefresh.Checked = _selectedFinOpsEntity?.Refresh ?? false;
 
+            SetVirtalEntityMetadata();
 
             SetUpdateButtonVisible();
         }
 
+        private void SetVirtalEntityMetadata()
+        {
+            _selectedVirtualEntityMetadata = Service.GetVirtualEntityMetadataFor(txtPhysicalName.Text);
+            txtVirtualLogicalName.Entity = _selectedVirtualEntityMetadata;
+            txtVirtualExternalName.Entity = _selectedVirtualEntityMetadata;
+            txtVirtualLocalizedName.Entity = _selectedVirtualEntityMetadata;
+            txtVirtualReportViewName.Entity = _selectedVirtualEntityMetadata;
+
+            imgGroupVirtual.Enabled = _selectedVirtualEntityMetadata != null;
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            UpdateFinOpsEntity();            
+            UpdateFinOpsEntity();
         }
 
         private void SetUpdateButtonVisible()
         {
-            btnUpdate.Visible = switchVisible.Checked != _selectedFinOpsEntity?.IsVisible 
+            btnUpdate.Visible = switchVisible.Checked != _selectedFinOpsEntity?.IsVisible
                                 || switchChangeTracking.Checked != _selectedFinOpsEntity?.ChangeTrackingEnabled
                                 || switchRefresh.Checked != _selectedFinOpsEntity?.Refresh;
 
@@ -251,7 +282,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                 finOpsEntityToUpdate[FinOpsEntity.Refresh] = switchRefresh.Checked;
                 shouldUpdate = true;
             };
-            if (shouldUpdate) 
+            if (shouldUpdate)
             {
                 WorkAsync(new WorkAsyncInfo
                 {
@@ -276,7 +307,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
 
 
 
-                
+
             }
 
         }
@@ -292,11 +323,15 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         private void FilterResults()
         {
             _filteredFinOpsEntities = _allFinOpsEntities;
-            if (chkShowVisible.Checked) 
+            if (chkShowVisible.Checked)
             {
                 _filteredFinOpsEntities = new EntityCollection(_filteredFinOpsEntities.Entities.Where(e => e.GetAttributeValue<bool>(FinOpsEntity.Visible)).ToList());
             }
-            if (txtFilter.Text.Length > 0) 
+            if (chkShowChangeTracking.Checked)
+            {
+                _filteredFinOpsEntities = new EntityCollection(_filteredFinOpsEntities.Entities.Where(e => e.GetAttributeValue<bool>(FinOpsEntity.ChangeTracking)).ToList());
+            }
+            if (txtFilter.Text.Length > 0)
             {
                 _filteredFinOpsEntities = new EntityCollection(_filteredFinOpsEntities.Entities.Where(e => e.GetAttributeValue<string>(FinOpsEntity.PrimaryName).ToLower().Contains(txtFilter.Text.ToLower())).ToList());
 
@@ -310,15 +345,21 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             SetGridFinOpsEntitiesDataSource();
         }
 
+        private void chkShowChangeTracking_CheckedChanged(object sender, EventArgs e)
+        {
+            FilterResults();
+            SetGridFinOpsEntitiesDataSource();
+        }
+
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
             FilterResults();
             SetGridFinOpsEntitiesDataSource();
         }
 
-        
 
-       
+
+
 
         private void switchVisible_OnCheckedChanged(object sender, EventArgs e)
         {
@@ -334,5 +375,41 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         {
             SetUpdateButtonVisible();
         }
+
+        private void gridAvailableEntities_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            
+
+            // return if rowCount = 0
+            if (this.gridAvailableEntities.Rows.Count == 0)
+            {
+                return;
+            }
+
+            if (e.Value is string v && v == "True")
+            {
+                e.CellStyle.BackColor = Color.LightGreen;
+            }
+           
+        }
+
+        private void btnMetadataBrowser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OnOutgoingMessage(this, new MessageBusEventArgs("Metadata Browser Companion") { TargetArgument = txtVirtualLogicalName.Text, NewInstance = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        public void OnIncomingMessage(MessageBusEventArgs message)
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }
