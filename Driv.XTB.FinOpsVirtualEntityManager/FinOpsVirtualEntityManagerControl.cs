@@ -20,6 +20,7 @@ using System.Xml.Linq;
 using xrmtb.XrmToolBox.Controls;
 using XrmToolBox.Extensibility;
 using XrmToolBox.Extensibility.Interfaces;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Driv.XTB.FinOpsVirtualEntityManager
 {
@@ -47,11 +48,13 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
 
         private void FinOpsVirtualEntityManagerControl_Load(object sender, EventArgs e)
         {
-            lblConnection.Text = ConnectionDetail?.WebApplicationUrl;
+            txtDataverseUrl.Text = ConnectionDetail?.WebApplicationUrl;
+            
             LoadGlobalSettings();
             LoadConnectionSettings();
             ExecuteMethod(InitializeService);
-            
+            ExecuteMethod(RetrieveFinanceAndOperationsIntegrationDetails);
+
         }
 
         private void LoadGlobalSettings()
@@ -106,7 +109,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         {
             base.UpdateConnection(newService, detail, actionName, parameter);
 
-            lblConnection.Text = ConnectionDetail?.WebApplicationUrl;
+            txtDataverseUrl.Text = ConnectionDetail?.WebApplicationUrl;
             if (_globalsettings != null && detail != null)
             {
                 LoadConnectionSettings();
@@ -115,17 +118,20 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
 
                 ExecuteMethod(InitializeService);
+
                 _filteredFinOpsEntities = null;
                 _selectedFinOpsEntity = null;
                 SetSelectedEntity(Guid.Empty);
                 gridAvailableEntities.DataSource = null;
+
+                ExecuteMethod(RetrieveFinanceAndOperationsIntegrationDetails);
 
             }
         }
 
 
 
-        private void menuLoad_Click(object sender, EventArgs e)
+        private void btnLoad_Click(object sender, EventArgs e)
         {
             _selectedFinOpsEntity = null;
             SetSelectedEntity(Guid.Empty);
@@ -141,6 +147,46 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             txtVirtualLocalizedName.OrganizationService = Service;
             txtVirtualReportViewName.OrganizationService = Service;
         }
+
+        private void RetrieveFinanceAndOperationsIntegrationDetails()
+        {
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Retrieve FinanceAndOperations Integration Details...",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.RetrieveFinanceAndOperationsIntegrationDetails();
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        MessageBox.Show(args.Error.Message);
+                        pnlFinOpsNotFound.Visible = true;
+                        imgGroupEntities.Enabled = false;
+                        txtFinOpsUrl.Text = string.Empty;
+                        
+                    }
+                    else
+                    {
+
+                        if (args.Result is FinanceAndOperationsIntegrationDetails details)
+                        {
+                            pnlFinOpsNotFound.Visible = false;
+                            imgGroupEntities.Enabled = true;
+                            txtFinOpsUrl.Text = details.Url;
+                            btnLoad.Select();
+                            // Enable disable load entities button
+
+                        }
+                        
+
+                    }
+                }
+            });
+
+        }
+
 
         private void LoadAvailableFinOpsEntities()
         {
@@ -186,16 +232,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                             _allFinOpsEntities = new EntityCollection();
                         }
 
-                        if (_allFinOpsEntities.Entities.Count == 0)
-                        {
-                            pnlFinOpsNotFound.Visible = true;
-                            imgGroupEntities.Enabled = false;
-                        }
-                        else 
-                        {
-                            pnlFinOpsNotFound.Visible = false;
-                            imgGroupEntities.Enabled= true;
-                        }
+                        
 
                         //refresh selected entity / will refresh the form after update
                         if (_selectedFinOpsEntity != null) 
@@ -421,10 +458,6 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         {
             try
             {
-                // Change the color of the link text by setting LinkVisited
-                // to true.
-                //Call the Process.Start method to open the default browser
-                //with a URL:
                 System.Diagnostics.Process.Start("https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/power-platform/virtual-entities-overview?WT.mc_id=DX-MVP-5004959");
             }
             catch (Exception ex)
@@ -432,5 +465,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                 MessageBox.Show("Unable to open link that was clicked.");
             }
         }
+
+        
     }
 }
