@@ -8,7 +8,7 @@ XrmToolBox tool to manage Finance and Operations Dataverse Virtual Entities
 ## Features
 1. List/Filter available Finance and Operations entities
 1. Enable/Disable visibility of entities in Dataverse (Virtual entity enabled)
-1. Enable/Disable change tracking of entities (required for Synapse link integration)
+1. Enable/Disable change tracking of entities
 1. Refresh entity metadata (if fields are modified in FinOps side)
 1. Integrated with the [Metadata Browser Companion](https://github.com/MscrmTools/MsCrmTools.MetadataBrowser) from [MscrmTools](https://github.com/MscrmTools) to explore virtual entities attributes
 
