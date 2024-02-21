@@ -99,7 +99,7 @@
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
             this.toolStripMenu.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStripMenu.Size = new System.Drawing.Size(946, 31);
+            this.toolStripMenu.Size = new System.Drawing.Size(935, 31);
             this.toolStripMenu.TabIndex = 4;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -645,6 +645,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.txtFinOpsUrl);
             this.Controls.Add(this.txtDataverseUrl);
@@ -655,7 +656,7 @@
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.pictureBox6);
             this.Name = "FinOpsVirtualEntityManagerControl";
-            this.Size = new System.Drawing.Size(946, 880);
+            this.Size = new System.Drawing.Size(929, 863);
             this.Load += new System.EventHandler(this.FinOpsVirtualEntityManagerControl_Load);
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
