@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Driv.XTB.FinOpsVirtualEntityManager")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Finance and Operations Virtual Entity Manager for XrmToolBox")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("David Rivard")]
 [assembly: AssemblyProduct("Driv.XTB.FinOpsVirtualEntityManager")]
-[assembly: AssemblyCopyright("Copyright ©  2024")]
+[assembly: AssemblyCopyright("Copyright © 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
