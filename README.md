@@ -1,6 +1,9 @@
 # Driv.XTB.FinOpsVirtualEntityManager
 XrmToolBox tool to manage Finance and Operations Dataverse Virtual Entities
 
+## Blog Post
+https://itmustbecode.com/finance-and-operations-virtual-entity-manager-for-xrmtoolbox/
+
 ## Pre-requisite
 - The connected Dataverse environment must be integrated with a Finance and Operations environment  
 - Proper security roles and licenses are needed on both Dtaverse aand Finance and Operations side
