@@ -39,11 +39,11 @@
             this.pnlFinOpsNotFound = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDataverseUrl = new System.Windows.Forms.TextBox();
             this.txtFinOpsUrl = new System.Windows.Forms.TextBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.imgGroupEntities = new Driv.XTB.FinOpsVirtualEntityManager.ImageGroupBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtFilter = new System.Windows.Forms.TextBox();
@@ -62,6 +62,8 @@
             this.switchChangeTracking = new Driv.XTB.FinOpsVirtualEntityManager.SwitchControl();
             this.label1 = new System.Windows.Forms.Label();
             this.imgGroupVirtual = new Driv.XTB.FinOpsVirtualEntityManager.ImageGroupBox();
+            this.btnFetchXmlBuilder = new System.Windows.Forms.Button();
+            this.btnSql4Cds = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -157,16 +159,6 @@
             this.pictureBox5.TabIndex = 108;
             this.pictureBox5.TabStop = false;
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_connected_20;
-            this.pictureBox6.Location = new System.Drawing.Point(11, 33);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(17, 20);
-            this.pictureBox6.TabIndex = 120;
-            this.pictureBox6.TabStop = false;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -204,6 +196,16 @@
             this.txtFinOpsUrl.ReadOnly = true;
             this.txtFinOpsUrl.Size = new System.Drawing.Size(289, 20);
             this.txtFinOpsUrl.TabIndex = 127;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_connected_20;
+            this.pictureBox6.Location = new System.Drawing.Point(11, 33);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(17, 20);
+            this.pictureBox6.TabIndex = 120;
+            this.pictureBox6.TabStop = false;
             // 
             // imgGroupEntities
             // 
@@ -424,6 +426,8 @@
             // 
             // imgGroupVirtual
             // 
+            this.imgGroupVirtual.Controls.Add(this.btnFetchXmlBuilder);
+            this.imgGroupVirtual.Controls.Add(this.btnSql4Cds);
             this.imgGroupVirtual.Controls.Add(this.label9);
             this.imgGroupVirtual.Controls.Add(this.label8);
             this.imgGroupVirtual.Controls.Add(this.label5);
@@ -439,10 +443,40 @@
             this.imgGroupVirtual.Margin = new System.Windows.Forms.Padding(2);
             this.imgGroupVirtual.Name = "imgGroupVirtual";
             this.imgGroupVirtual.Padding = new System.Windows.Forms.Padding(2);
-            this.imgGroupVirtual.Size = new System.Drawing.Size(361, 218);
+            this.imgGroupVirtual.Size = new System.Drawing.Size(361, 317);
             this.imgGroupVirtual.TabIndex = 118;
             this.imgGroupVirtual.TabStop = false;
             this.imgGroupVirtual.Text = "Dataverse Virtual Entity";
+            // 
+            // btnFetchXmlBuilder
+            // 
+            this.btnFetchXmlBuilder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFetchXmlBuilder.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.FXB_20;
+            this.btnFetchXmlBuilder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFetchXmlBuilder.Location = new System.Drawing.Point(18, 244);
+            this.btnFetchXmlBuilder.Name = "btnFetchXmlBuilder";
+            this.btnFetchXmlBuilder.Size = new System.Drawing.Size(234, 39);
+            this.btnFetchXmlBuilder.TabIndex = 117;
+            this.btnFetchXmlBuilder.Text = "Explore Data with FetchXmlBuilder";
+            this.btnFetchXmlBuilder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFetchXmlBuilder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFetchXmlBuilder.UseVisualStyleBackColor = true;
+            this.btnFetchXmlBuilder.Click += new System.EventHandler(this.btnFetchXmlBuilder_Click);
+            // 
+            // btnSql4Cds
+            // 
+            this.btnSql4Cds.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSql4Cds.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.SQL4CDS_Icon_20_3;
+            this.btnSql4Cds.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSql4Cds.Location = new System.Drawing.Point(17, 199);
+            this.btnSql4Cds.Name = "btnSql4Cds";
+            this.btnSql4Cds.Size = new System.Drawing.Size(235, 39);
+            this.btnSql4Cds.TabIndex = 116;
+            this.btnSql4Cds.Text = "Explore Data with SQL4CDS";
+            this.btnSql4Cds.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSql4Cds.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSql4Cds.UseVisualStyleBackColor = true;
+            this.btnSql4Cds.Click += new System.EventHandler(this.btnSql4Cds_Click);
             // 
             // label9
             // 
@@ -543,9 +577,9 @@
             this.btnMetadataBrowser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMetadataBrowser.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.mscrmtools;
             this.btnMetadataBrowser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMetadataBrowser.Location = new System.Drawing.Point(124, 168);
+            this.btnMetadataBrowser.Location = new System.Drawing.Point(18, 154);
             this.btnMetadataBrowser.Name = "btnMetadataBrowser";
-            this.btnMetadataBrowser.Size = new System.Drawing.Size(216, 39);
+            this.btnMetadataBrowser.Size = new System.Drawing.Size(234, 39);
             this.btnMetadataBrowser.TabIndex = 109;
             this.btnMetadataBrowser.Text = "Explore with Metadata Browser";
             this.btnMetadataBrowser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -656,7 +690,7 @@
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.pictureBox6);
             this.Name = "FinOpsVirtualEntityManagerControl";
-            this.Size = new System.Drawing.Size(929, 863);
+            this.Size = new System.Drawing.Size(891, 821);
             this.Load += new System.EventHandler(this.FinOpsVirtualEntityManagerControl_Load);
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
@@ -724,5 +758,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtDataverseUrl;
         private System.Windows.Forms.TextBox txtFinOpsUrl;
+        private System.Windows.Forms.Button btnSql4Cds;
+        private System.Windows.Forms.Button btnFetchXmlBuilder;
     }
 }

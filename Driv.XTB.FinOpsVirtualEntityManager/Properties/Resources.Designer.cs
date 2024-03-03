@@ -73,6 +73,26 @@ namespace Driv.XTB.FinOpsVirtualEntityManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FXB_20 {
+            get {
+                object obj = ResourceManager.GetObject("FXB-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FXB_2019_2_032_tsp {
+            get {
+                object obj = ResourceManager.GetObject("FXB-2019-2-032-tsp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_change_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_change_32", resourceCulture);
@@ -266,6 +286,36 @@ namespace Driv.XTB.FinOpsVirtualEntityManager.Properties {
         internal static System.Drawing.Bitmap on_button {
             get {
                 object obj = ResourceManager.GetObject("on_button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SQL4CDS_Icon_20 {
+            get {
+                object obj = ResourceManager.GetObject("SQL4CDS Icon-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SQL4CDS_Icon_20_2 {
+            get {
+                object obj = ResourceManager.GetObject("SQL4CDS Icon-20_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SQL4CDS_Icon_20_3 {
+            get {
+                object obj = ResourceManager.GetObject("SQL4CDS Icon-20_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

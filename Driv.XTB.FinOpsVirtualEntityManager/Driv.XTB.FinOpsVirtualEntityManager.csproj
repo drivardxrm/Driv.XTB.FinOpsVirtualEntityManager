@@ -388,6 +388,21 @@
   <ItemGroup>
     <None Include="Resources\icons8-hyperlink-20.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FXB-2019-2-032-tsp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FXB-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SQL4CDS Icon-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SQL4CDS Icon-20_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SQL4CDS Icon-20_3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>ilmerge.exe /target:library /targetplatform:v4,"C:\Windows\Microsoft.NET\Framework\v4.0.30319" "/out:Driv.XTB.FinOpsVirtualEntityManager.dll" "$(TargetFileName)"  "xrmtb.XrmToolBox.Controls.dll"

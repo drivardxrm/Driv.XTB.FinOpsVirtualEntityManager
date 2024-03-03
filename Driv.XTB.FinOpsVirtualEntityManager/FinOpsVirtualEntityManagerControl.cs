@@ -20,6 +20,7 @@ using System.Xml.Linq;
 using xrmtb.XrmToolBox.Controls;
 using XrmToolBox.Extensibility;
 using XrmToolBox.Extensibility.Interfaces;
+using static ScintillaNET.Style;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Driv.XTB.FinOpsVirtualEntityManager
@@ -447,9 +448,43 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             }
         }
 
+        private void btnSql4Cds_Click(object sender, EventArgs e)
+        {
+            
+
+
+            try
+            {
+                var sql = $"select * from {txtVirtualLogicalName.Text}";
+                OnOutgoingMessage(this, new MessageBusEventArgs("SQL 4 CDS") { TargetArgument = sql, NewInstance = false });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+
+        }
+
+        private void btnFetchXmlBuilder_Click(object sender, EventArgs e)
+        {
+            
+
+            try
+            {
+                var fetchXml = $@"<fetch>
+                                    <entity name='{txtVirtualLogicalName.Text}' />
+                                 </fetch>";
+                OnOutgoingMessage(this, new MessageBusEventArgs("FetchXML Builder") { TargetArgument = fetchXml, NewInstance = false });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
         public void OnIncomingMessage(MessageBusEventArgs message)
         {
-            throw new NotImplementedException();
+            //pass through
         }
 
        
