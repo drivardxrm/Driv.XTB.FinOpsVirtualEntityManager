@@ -50,6 +50,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         private void FinOpsVirtualEntityManagerControl_Load(object sender, EventArgs e)
         {
             txtDataverseUrl.Text = ConnectionDetail?.WebApplicationUrl;
+            btnPPAC.Enabled = true;
             pictDataverse.Enabled = !string.IsNullOrEmpty(txtDataverseUrl.Text);
             
             LoadGlobalSettings();
@@ -518,6 +519,18 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             try
             {
                 System.Diagnostics.Process.Start(txtFinOpsUrl.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link that was clicked.");
+            }
+        }
+
+        private void btnPPAC_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start($"https://admin.powerplatform.microsoft.com/environments/environment/{ConnectionDetail?.EnvironmentId}/hub");
             }
             catch (Exception ex)
             {
