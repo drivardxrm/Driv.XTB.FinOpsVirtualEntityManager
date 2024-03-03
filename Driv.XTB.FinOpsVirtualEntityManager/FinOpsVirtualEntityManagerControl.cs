@@ -50,6 +50,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         private void FinOpsVirtualEntityManagerControl_Load(object sender, EventArgs e)
         {
             txtDataverseUrl.Text = ConnectionDetail?.WebApplicationUrl;
+            pictDataverse.Enabled = !string.IsNullOrEmpty(txtDataverseUrl.Text);
             
             LoadGlobalSettings();
             LoadConnectionSettings();
@@ -180,9 +181,8 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                             // Enable disable load entities button
 
                         }
-                        
-
                     }
+                    pictFinOps.Enabled = !string.IsNullOrEmpty(txtFinOpsUrl.Text);
                 }
             });
 
@@ -501,6 +501,28 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             }
         }
 
-        
+        private void pictDataverse_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(txtDataverseUrl.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link that was clicked.");
+            }
+        }
+
+        private void pictFinOps_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(txtFinOpsUrl.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link that was clicked.");
+            }
+        }
     }
 }

@@ -34,16 +34,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tslAbout = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.pnlFinOpsNotFound = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDataverseUrl = new System.Windows.Forms.TextBox();
             this.txtFinOpsUrl = new System.Windows.Forms.TextBox();
+            this.pictDataverse = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.tslAbout = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictFinOps = new System.Windows.Forms.PictureBox();
             this.imgGroupEntities = new Driv.XTB.FinOpsVirtualEntityManager.ImageGroupBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtFilter = new System.Windows.Forms.TextBox();
@@ -79,8 +81,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStripMenu.SuspendLayout();
             this.pnlFinOpsNotFound.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictDataverse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictFinOps)).BeginInit();
             this.imgGroupEntities.SuspendLayout();
             this.imgBoxSelectedEntity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -110,25 +114,6 @@
             this.tssSeparator1.Name = "tssSeparator1";
             this.tssSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
-            // tslAbout
-            // 
-            this.tslAbout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tslAbout.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_vr_20;
-            this.tslAbout.IsLink = true;
-            this.tslAbout.Name = "tslAbout";
-            this.tslAbout.Size = new System.Drawing.Size(113, 28);
-            this.tslAbout.Text = "by David Rivard";
-            this.tslAbout.Click += new System.EventHandler(this.tslAbout_Click);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_hyperlink_20;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(138, 28);
-            this.toolStripButton1.Text = "Link to official docs";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
             // pnlFinOpsNotFound
             // 
             this.pnlFinOpsNotFound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -149,16 +134,6 @@
             this.label10.TabIndex = 109;
             this.label10.Text = "Finance and Operations integration not found on this Dataverse environment";
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_error_20;
-            this.pictureBox5.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 19);
-            this.pictureBox5.TabIndex = 108;
-            this.pictureBox5.TabStop = false;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -174,7 +149,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(313, 39);
+            this.label12.Location = new System.Drawing.Point(332, 40);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(142, 13);
@@ -191,11 +166,53 @@
             // 
             // txtFinOpsUrl
             // 
-            this.txtFinOpsUrl.Location = new System.Drawing.Point(312, 55);
+            this.txtFinOpsUrl.Location = new System.Drawing.Point(335, 56);
             this.txtFinOpsUrl.Name = "txtFinOpsUrl";
             this.txtFinOpsUrl.ReadOnly = true;
             this.txtFinOpsUrl.Size = new System.Drawing.Size(289, 20);
             this.txtFinOpsUrl.TabIndex = 127;
+            // 
+            // pictDataverse
+            // 
+            this.pictDataverse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictDataverse.Enabled = false;
+            this.pictDataverse.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_webpage_20__1_;
+            this.pictDataverse.Location = new System.Drawing.Point(306, 55);
+            this.pictDataverse.Margin = new System.Windows.Forms.Padding(2);
+            this.pictDataverse.Name = "pictDataverse";
+            this.pictDataverse.Size = new System.Drawing.Size(24, 21);
+            this.pictDataverse.TabIndex = 128;
+            this.pictDataverse.TabStop = false;
+            this.pictDataverse.Click += new System.EventHandler(this.pictDataverse_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_error_20;
+            this.pictureBox5.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(24, 19);
+            this.pictureBox5.TabIndex = 108;
+            this.pictureBox5.TabStop = false;
+            // 
+            // tslAbout
+            // 
+            this.tslAbout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tslAbout.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_vr_20;
+            this.tslAbout.IsLink = true;
+            this.tslAbout.Name = "tslAbout";
+            this.tslAbout.Size = new System.Drawing.Size(113, 28);
+            this.tslAbout.Text = "by David Rivard";
+            this.tslAbout.Click += new System.EventHandler(this.tslAbout_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_hyperlink_20;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(138, 28);
+            this.toolStripButton1.Text = "Link to official docs";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // pictureBox6
             // 
@@ -206,6 +223,19 @@
             this.pictureBox6.Size = new System.Drawing.Size(17, 20);
             this.pictureBox6.TabIndex = 120;
             this.pictureBox6.TabStop = false;
+            // 
+            // pictFinOps
+            // 
+            this.pictFinOps.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictFinOps.Enabled = false;
+            this.pictFinOps.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_webpage_20__1_;
+            this.pictFinOps.Location = new System.Drawing.Point(626, 55);
+            this.pictFinOps.Margin = new System.Windows.Forms.Padding(2);
+            this.pictFinOps.Name = "pictFinOps";
+            this.pictFinOps.Size = new System.Drawing.Size(24, 21);
+            this.pictFinOps.TabIndex = 129;
+            this.pictFinOps.TabStop = false;
+            this.pictFinOps.Click += new System.EventHandler(this.pictFinOps_Click);
             // 
             // imgGroupEntities
             // 
@@ -681,6 +711,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.pictFinOps);
+            this.Controls.Add(this.pictDataverse);
             this.Controls.Add(this.txtFinOpsUrl);
             this.Controls.Add(this.txtDataverseUrl);
             this.Controls.Add(this.label12);
@@ -690,14 +722,16 @@
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.pictureBox6);
             this.Name = "FinOpsVirtualEntityManagerControl";
-            this.Size = new System.Drawing.Size(891, 821);
+            this.Size = new System.Drawing.Size(874, 804);
             this.Load += new System.EventHandler(this.FinOpsVirtualEntityManagerControl_Load);
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
             this.pnlFinOpsNotFound.ResumeLayout(false);
             this.pnlFinOpsNotFound.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictDataverse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictFinOps)).EndInit();
             this.imgGroupEntities.ResumeLayout(false);
             this.imgGroupEntities.PerformLayout();
             this.imgBoxSelectedEntity.ResumeLayout(false);
@@ -760,5 +794,7 @@
         private System.Windows.Forms.TextBox txtFinOpsUrl;
         private System.Windows.Forms.Button btnSql4Cds;
         private System.Windows.Forms.Button btnFetchXmlBuilder;
+        private System.Windows.Forms.PictureBox pictDataverse;
+        private System.Windows.Forms.PictureBox pictFinOps;
     }
 }
