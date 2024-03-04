@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FinOpsVirtualEntityManagerControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslAbout = new System.Windows.Forms.ToolStripLabel();
@@ -44,6 +44,11 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtDataverseUrl = new System.Windows.Forms.TextBox();
             this.txtFinOpsUrl = new System.Windows.Forms.TextBox();
+            this.btnPPAC = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.btnDataverse = new System.Windows.Forms.Button();
+            this.btnFinOps = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.imgGroupEntities = new Driv.XTB.FinOpsVirtualEntityManager.ImageGroupBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtFilter = new System.Windows.Forms.TextBox();
@@ -77,14 +82,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gridAvailableEntities = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnPPAC = new System.Windows.Forms.Button();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.btnDataverse = new System.Windows.Forms.Button();
-            this.btnFinOps = new System.Windows.Forms.Button();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.toolStripMenu.SuspendLayout();
             this.pnlFinOpsNotFound.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.imgGroupEntities.SuspendLayout();
             this.imgBoxSelectedEntity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -93,7 +94,6 @@
             this.imgGroupVirtual.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAvailableEntities)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripMenu
@@ -201,6 +201,64 @@
             this.txtFinOpsUrl.ReadOnly = true;
             this.txtFinOpsUrl.Size = new System.Drawing.Size(289, 20);
             this.txtFinOpsUrl.TabIndex = 127;
+            // 
+            // btnPPAC
+            // 
+            this.btnPPAC.Enabled = false;
+            this.btnPPAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPPAC.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_setup_32;
+            this.btnPPAC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPPAC.Location = new System.Drawing.Point(710, 47);
+            this.btnPPAC.Name = "btnPPAC";
+            this.btnPPAC.Size = new System.Drawing.Size(207, 36);
+            this.btnPPAC.TabIndex = 118;
+            this.btnPPAC.Text = "Open in PPAC admin center";
+            this.btnPPAC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPPAC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPPAC.UseVisualStyleBackColor = true;
+            this.btnPPAC.Click += new System.EventHandler(this.btnPPAC_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_connected_20;
+            this.pictureBox6.Location = new System.Drawing.Point(18, 33);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(17, 20);
+            this.pictureBox6.TabIndex = 120;
+            this.pictureBox6.TabStop = false;
+            // 
+            // btnDataverse
+            // 
+            this.btnDataverse.Enabled = false;
+            this.btnDataverse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDataverse.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_webpage_20__1_;
+            this.btnDataverse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDataverse.Location = new System.Drawing.Point(312, 51);
+            this.btnDataverse.Name = "btnDataverse";
+            this.btnDataverse.Size = new System.Drawing.Size(29, 27);
+            this.btnDataverse.TabIndex = 130;
+            this.btnDataverse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDataverse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip.SetToolTip(this.btnDataverse, "Navigate to Dataverse environment");
+            this.btnDataverse.UseVisualStyleBackColor = true;
+            this.btnDataverse.Click += new System.EventHandler(this.btnDataverse_Click);
+            // 
+            // btnFinOps
+            // 
+            this.btnFinOps.Enabled = false;
+            this.btnFinOps.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinOps.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_webpage_20__1_;
+            this.btnFinOps.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFinOps.Location = new System.Drawing.Point(631, 52);
+            this.btnFinOps.Name = "btnFinOps";
+            this.btnFinOps.Size = new System.Drawing.Size(29, 27);
+            this.btnFinOps.TabIndex = 131;
+            this.btnFinOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFinOps.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.toolTip.SetToolTip(this.btnFinOps, "Navigate to Finance and Operations environment");
+            this.btnFinOps.UseVisualStyleBackColor = true;
+            this.btnFinOps.Click += new System.EventHandler(this.btnFinOps_Click);
             // 
             // imgGroupEntities
             // 
@@ -619,37 +677,37 @@
             this.gridAvailableEntities.AllowUserToOrderColumns = true;
             this.gridAvailableEntities.AllowUserToResizeRows = false;
             this.gridAvailableEntities.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridAvailableEntities.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridAvailableEntities.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gridAvailableEntities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridAvailableEntities.ColumnOrder = "mserp_physicalname, mserp_hasbeengenerated, mserp_changetrackingenabled";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridAvailableEntities.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridAvailableEntities.DefaultCellStyle = dataGridViewCellStyle5;
             this.gridAvailableEntities.FilterColumns = "";
             this.gridAvailableEntities.Location = new System.Drawing.Point(9, 93);
             this.gridAvailableEntities.MultiSelect = false;
             this.gridAvailableEntities.Name = "gridAvailableEntities";
             this.gridAvailableEntities.OrganizationService = null;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridAvailableEntities.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridAvailableEntities.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.gridAvailableEntities.RowHeadersWidth = 51;
             this.gridAvailableEntities.ShowAllColumnsInColumnOrder = true;
             this.gridAvailableEntities.ShowColumnsNotInColumnOrder = false;
@@ -670,60 +728,6 @@
             this.pictureBox1.TabIndex = 106;
             this.pictureBox1.TabStop = false;
             // 
-            // btnPPAC
-            // 
-            this.btnPPAC.Enabled = false;
-            this.btnPPAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPPAC.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_setup_32;
-            this.btnPPAC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPPAC.Location = new System.Drawing.Point(710, 47);
-            this.btnPPAC.Name = "btnPPAC";
-            this.btnPPAC.Size = new System.Drawing.Size(207, 36);
-            this.btnPPAC.TabIndex = 118;
-            this.btnPPAC.Text = "Open in PPAC admin center";
-            this.btnPPAC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPPAC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPPAC.UseVisualStyleBackColor = true;
-            this.btnPPAC.Click += new System.EventHandler(this.btnPPAC_Click);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_connected_20;
-            this.pictureBox6.Location = new System.Drawing.Point(18, 33);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(17, 20);
-            this.pictureBox6.TabIndex = 120;
-            this.pictureBox6.TabStop = false;
-            // 
-            // btnDataverse
-            // 
-            this.btnDataverse.Enabled = false;
-            this.btnDataverse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDataverse.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_webpage_20__1_;
-            this.btnDataverse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDataverse.Location = new System.Drawing.Point(312, 51);
-            this.btnDataverse.Name = "btnDataverse";
-            this.btnDataverse.Size = new System.Drawing.Size(29, 27);
-            this.btnDataverse.TabIndex = 130;
-            this.btnDataverse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDataverse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDataverse.UseVisualStyleBackColor = true;
-            // 
-            // btnFinOps
-            // 
-            this.btnFinOps.Enabled = false;
-            this.btnFinOps.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinOps.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_webpage_20__1_;
-            this.btnFinOps.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinOps.Location = new System.Drawing.Point(631, 52);
-            this.btnFinOps.Name = "btnFinOps";
-            this.btnFinOps.Size = new System.Drawing.Size(29, 27);
-            this.btnFinOps.TabIndex = 131;
-            this.btnFinOps.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinOps.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFinOps.UseVisualStyleBackColor = true;
-            // 
             // FinOpsVirtualEntityManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -742,13 +746,14 @@
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.pictureBox6);
             this.Name = "FinOpsVirtualEntityManagerControl";
-            this.Size = new System.Drawing.Size(922, 738);
+            this.Size = new System.Drawing.Size(905, 721);
             this.Load += new System.EventHandler(this.FinOpsVirtualEntityManagerControl_Load);
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
             this.pnlFinOpsNotFound.ResumeLayout(false);
             this.pnlFinOpsNotFound.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.imgGroupEntities.ResumeLayout(false);
             this.imgGroupEntities.PerformLayout();
             this.imgBoxSelectedEntity.ResumeLayout(false);
@@ -760,7 +765,6 @@
             this.imgGroupVirtual.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridAvailableEntities)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
