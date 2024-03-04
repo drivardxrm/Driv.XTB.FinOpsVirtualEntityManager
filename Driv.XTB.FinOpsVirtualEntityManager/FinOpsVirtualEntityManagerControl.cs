@@ -50,8 +50,9 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         private void FinOpsVirtualEntityManagerControl_Load(object sender, EventArgs e)
         {
             txtDataverseUrl.Text = ConnectionDetail?.WebApplicationUrl;
+            toolTip.Show($"Navigate to {txtDataverseUrl.Text}", btnDataverse);
             btnPPAC.Enabled = true;
-            pictDataverse.Enabled = !string.IsNullOrEmpty(txtDataverseUrl.Text);
+            btnDataverse.Enabled = !string.IsNullOrEmpty(txtDataverseUrl.Text);
             
             LoadGlobalSettings();
             LoadConnectionSettings();
@@ -113,6 +114,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             base.UpdateConnection(newService, detail, actionName, parameter);
 
             txtDataverseUrl.Text = ConnectionDetail?.WebApplicationUrl;
+            toolTip.Show($"Navigate to {txtDataverseUrl.Text}", btnDataverse);
             if (_globalsettings != null && detail != null)
             {
                 LoadConnectionSettings();
@@ -180,10 +182,11 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                             txtFinOpsUrl.Text = details.Url;
                             btnLoad.Select();
                             // Enable disable load entities button
-
+                            toolTip.Show($"Navigate to {txtFinOpsUrl.Text}", btnFinOps);
                         }
                     }
-                    pictFinOps.Enabled = !string.IsNullOrEmpty(txtFinOpsUrl.Text);
+                    btnFinOps.Enabled = !string.IsNullOrEmpty(txtFinOpsUrl.Text);
+                    
                 }
             });
 
