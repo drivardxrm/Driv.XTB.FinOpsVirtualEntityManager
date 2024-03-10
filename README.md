@@ -1,6 +1,8 @@
 # Driv.XTB.FinOpsVirtualEntityManager
 XrmToolBox tool to manage Finance and Operations Dataverse Virtual Entities
 
+![Nuget](https://img.shields.io/nuget/dt/Driv.XTB.FinOpsVirtualEntityManager) ![Nuget](https://img.shields.io/nuget/v/Driv.XTB.FinOpsVirtualEntityManager)
+
 ## Blog Post
 https://itmustbecode.com/finance-and-operations-virtual-entity-manager-for-xrmtoolbox/
 
