@@ -49,7 +49,13 @@
             this.btnDataverse = new System.Windows.Forms.Button();
             this.btnFinOps = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.dlgLookupSelectedEntity = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.imgGroupEntities = new Driv.XTB.FinOpsVirtualEntityManager.ImageGroupBox();
+            this.imgGroupDeepLink = new Driv.XTB.FinOpsVirtualEntityManager.ImageGroupBox();
+            this.lnkInfo = new System.Windows.Forms.LinkLabel();
+            this.txtLookupSelectedRecordId = new System.Windows.Forms.TextBox();
+            this.btnLookupSelectedEntity = new System.Windows.Forms.Button();
+            this.rtbDeepLink = new System.Windows.Forms.RichTextBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.chkShowChangeTracking = new System.Windows.Forms.CheckBox();
@@ -67,6 +73,8 @@
             this.switchChangeTracking = new Driv.XTB.FinOpsVirtualEntityManager.SwitchControl();
             this.label1 = new System.Windows.Forms.Label();
             this.imgGroupVirtual = new Driv.XTB.FinOpsVirtualEntityManager.ImageGroupBox();
+            this.txtVirtualPluralName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.btnFetchXmlBuilder = new System.Windows.Forms.Button();
             this.btnSql4Cds = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -82,11 +90,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.gridAvailableEntities = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.toolStripMenu.SuspendLayout();
             this.pnlFinOpsNotFound.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.imgGroupEntities.SuspendLayout();
+            this.imgGroupDeepLink.SuspendLayout();
             this.imgBoxSelectedEntity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -106,7 +116,7 @@
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
             this.toolStripMenu.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStripMenu.Size = new System.Drawing.Size(942, 31);
+            this.toolStripMenu.Size = new System.Drawing.Size(951, 31);
             this.toolStripMenu.TabIndex = 4;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -139,7 +149,7 @@
             this.pnlFinOpsNotFound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.pnlFinOpsNotFound.Controls.Add(this.label10);
             this.pnlFinOpsNotFound.Controls.Add(this.pictureBox5);
-            this.pnlFinOpsNotFound.Location = new System.Drawing.Point(256, 77);
+            this.pnlFinOpsNotFound.Location = new System.Drawing.Point(254, 81);
             this.pnlFinOpsNotFound.Name = "pnlFinOpsNotFound";
             this.pnlFinOpsNotFound.Size = new System.Drawing.Size(400, 23);
             this.pnlFinOpsNotFound.TabIndex = 109;
@@ -168,7 +178,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(52, 39);
+            this.label11.Location = new System.Drawing.Point(50, 43);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 13);
@@ -179,7 +189,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(339, 40);
+            this.label12.Location = new System.Drawing.Point(337, 44);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(142, 13);
@@ -188,7 +198,7 @@
             // 
             // txtDataverseUrl
             // 
-            this.txtDataverseUrl.Location = new System.Drawing.Point(48, 55);
+            this.txtDataverseUrl.Location = new System.Drawing.Point(46, 59);
             this.txtDataverseUrl.Name = "txtDataverseUrl";
             this.txtDataverseUrl.ReadOnly = true;
             this.txtDataverseUrl.Size = new System.Drawing.Size(265, 20);
@@ -196,7 +206,8 @@
             // 
             // txtFinOpsUrl
             // 
-            this.txtFinOpsUrl.Location = new System.Drawing.Point(342, 56);
+            this.txtFinOpsUrl.Enabled = false;
+            this.txtFinOpsUrl.Location = new System.Drawing.Point(340, 60);
             this.txtFinOpsUrl.Name = "txtFinOpsUrl";
             this.txtFinOpsUrl.ReadOnly = true;
             this.txtFinOpsUrl.Size = new System.Drawing.Size(289, 20);
@@ -208,7 +219,7 @@
             this.btnPPAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPPAC.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_setup_32;
             this.btnPPAC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPPAC.Location = new System.Drawing.Point(710, 47);
+            this.btnPPAC.Location = new System.Drawing.Point(708, 51);
             this.btnPPAC.Name = "btnPPAC";
             this.btnPPAC.Size = new System.Drawing.Size(207, 36);
             this.btnPPAC.TabIndex = 118;
@@ -221,7 +232,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_connected_20;
-            this.pictureBox6.Location = new System.Drawing.Point(18, 33);
+            this.pictureBox6.Location = new System.Drawing.Point(16, 37);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(17, 20);
@@ -234,7 +245,7 @@
             this.btnDataverse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDataverse.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_webpage_20__1_;
             this.btnDataverse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDataverse.Location = new System.Drawing.Point(312, 51);
+            this.btnDataverse.Location = new System.Drawing.Point(310, 55);
             this.btnDataverse.Name = "btnDataverse";
             this.btnDataverse.Size = new System.Drawing.Size(29, 27);
             this.btnDataverse.TabIndex = 130;
@@ -250,7 +261,7 @@
             this.btnFinOps.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinOps.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.icons8_webpage_20__1_;
             this.btnFinOps.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinOps.Location = new System.Drawing.Point(631, 52);
+            this.btnFinOps.Location = new System.Drawing.Point(629, 56);
             this.btnFinOps.Name = "btnFinOps";
             this.btnFinOps.Size = new System.Drawing.Size(29, 27);
             this.btnFinOps.TabIndex = 131;
@@ -260,8 +271,19 @@
             this.btnFinOps.UseVisualStyleBackColor = true;
             this.btnFinOps.Click += new System.EventHandler(this.btnFinOps_Click);
             // 
+            // dlgLookupSelectedEntity
+            // 
+            this.dlgLookupSelectedEntity.Entity = null;
+            this.dlgLookupSelectedEntity.IncludePersonalViews = true;
+            this.dlgLookupSelectedEntity.LogicalName = "account";
+            this.dlgLookupSelectedEntity.LogicalNames = new string[] {
+        "account"};
+            this.dlgLookupSelectedEntity.Service = null;
+            this.dlgLookupSelectedEntity.Title = null;
+            // 
             // imgGroupEntities
             // 
+            this.imgGroupEntities.Controls.Add(this.imgGroupDeepLink);
             this.imgGroupEntities.Controls.Add(this.btnLoad);
             this.imgGroupEntities.Controls.Add(this.txtFilter);
             this.imgGroupEntities.Controls.Add(this.chkShowChangeTracking);
@@ -273,7 +295,7 @@
             this.imgGroupEntities.Controls.Add(this.pictureBox1);
             this.imgGroupEntities.Enabled = false;
             this.imgGroupEntities.Icon = ((System.Drawing.Icon)(resources.GetObject("imgGroupEntities.Icon")));
-            this.imgGroupEntities.Location = new System.Drawing.Point(9, 85);
+            this.imgGroupEntities.Location = new System.Drawing.Point(7, 89);
             this.imgGroupEntities.Margin = new System.Windows.Forms.Padding(2);
             this.imgGroupEntities.Name = "imgGroupEntities";
             this.imgGroupEntities.Padding = new System.Windows.Forms.Padding(2);
@@ -281,6 +303,62 @@
             this.imgGroupEntities.TabIndex = 108;
             this.imgGroupEntities.TabStop = false;
             this.imgGroupEntities.Text = "Finance and Operations Available entities";
+            // 
+            // imgGroupDeepLink
+            // 
+            this.imgGroupDeepLink.Controls.Add(this.label14);
+            this.imgGroupDeepLink.Controls.Add(this.lnkInfo);
+            this.imgGroupDeepLink.Controls.Add(this.txtLookupSelectedRecordId);
+            this.imgGroupDeepLink.Controls.Add(this.btnLookupSelectedEntity);
+            this.imgGroupDeepLink.Controls.Add(this.rtbDeepLink);
+            this.imgGroupDeepLink.Enabled = false;
+            this.imgGroupDeepLink.Icon = ((System.Drawing.Icon)(resources.GetObject("imgGroupDeepLink.Icon")));
+            this.imgGroupDeepLink.Location = new System.Drawing.Point(547, 628);
+            this.imgGroupDeepLink.Margin = new System.Windows.Forms.Padding(2);
+            this.imgGroupDeepLink.Name = "imgGroupDeepLink";
+            this.imgGroupDeepLink.Padding = new System.Windows.Forms.Padding(2);
+            this.imgGroupDeepLink.Size = new System.Drawing.Size(361, 201);
+            this.imgGroupDeepLink.TabIndex = 120;
+            this.imgGroupDeepLink.TabStop = false;
+            this.imgGroupDeepLink.Text = "Deep Link Example";
+            // 
+            // lnkInfo
+            // 
+            this.lnkInfo.AutoSize = true;
+            this.lnkInfo.Location = new System.Drawing.Point(303, 138);
+            this.lnkInfo.Name = "lnkInfo";
+            this.lnkInfo.Size = new System.Drawing.Size(24, 13);
+            this.lnkInfo.TabIndex = 108;
+            this.lnkInfo.TabStop = true;
+            this.lnkInfo.Text = "info";
+            this.lnkInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkInfo_LinkClicked);
+            // 
+            // txtLookupSelectedRecordId
+            // 
+            this.txtLookupSelectedRecordId.Location = new System.Drawing.Point(40, 46);
+            this.txtLookupSelectedRecordId.Name = "txtLookupSelectedRecordId";
+            this.txtLookupSelectedRecordId.ReadOnly = true;
+            this.txtLookupSelectedRecordId.Size = new System.Drawing.Size(229, 20);
+            this.txtLookupSelectedRecordId.TabIndex = 13;
+            // 
+            // btnLookupSelectedEntity
+            // 
+            this.btnLookupSelectedEntity.Image = ((System.Drawing.Image)(resources.GetObject("btnLookupSelectedEntity.Image")));
+            this.btnLookupSelectedEntity.Location = new System.Drawing.Point(11, 44);
+            this.btnLookupSelectedEntity.Name = "btnLookupSelectedEntity";
+            this.btnLookupSelectedEntity.Size = new System.Drawing.Size(23, 23);
+            this.btnLookupSelectedEntity.TabIndex = 12;
+            this.btnLookupSelectedEntity.UseVisualStyleBackColor = true;
+            this.btnLookupSelectedEntity.Click += new System.EventHandler(this.btnLookupSelectedEntity_Click);
+            // 
+            // rtbDeepLink
+            // 
+            this.rtbDeepLink.Location = new System.Drawing.Point(10, 73);
+            this.rtbDeepLink.Name = "rtbDeepLink";
+            this.rtbDeepLink.ReadOnly = true;
+            this.rtbDeepLink.Size = new System.Drawing.Size(320, 62);
+            this.rtbDeepLink.TabIndex = 1;
+            this.rtbDeepLink.Text = "";
             // 
             // btnLoad
             // 
@@ -479,6 +557,8 @@
             // 
             // imgGroupVirtual
             // 
+            this.imgGroupVirtual.Controls.Add(this.txtVirtualPluralName);
+            this.imgGroupVirtual.Controls.Add(this.label13);
             this.imgGroupVirtual.Controls.Add(this.btnFetchXmlBuilder);
             this.imgGroupVirtual.Controls.Add(this.btnSql4Cds);
             this.imgGroupVirtual.Controls.Add(this.label9);
@@ -501,12 +581,38 @@
             this.imgGroupVirtual.TabStop = false;
             this.imgGroupVirtual.Text = "Dataverse Virtual Entity";
             // 
+            // txtVirtualPluralName
+            // 
+            this.txtVirtualPluralName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtVirtualPluralName.DisplayFormat = "entitysetname";
+            this.txtVirtualPluralName.Entity = null;
+            this.txtVirtualPluralName.EntityReference = null;
+            this.txtVirtualPluralName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVirtualPluralName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtVirtualPluralName.Location = new System.Drawing.Point(108, 63);
+            this.txtVirtualPluralName.LogicalName = "entity";
+            this.txtVirtualPluralName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtVirtualPluralName.Name = "txtVirtualPluralName";
+            this.txtVirtualPluralName.OrganizationService = null;
+            this.txtVirtualPluralName.Size = new System.Drawing.Size(232, 20);
+            this.txtVirtualPluralName.TabIndex = 118;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(14, 65);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(64, 13);
+            this.label13.TabIndex = 119;
+            this.label13.Text = "Plural Name";
+            // 
             // btnFetchXmlBuilder
             // 
             this.btnFetchXmlBuilder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFetchXmlBuilder.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.FXB_20;
             this.btnFetchXmlBuilder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFetchXmlBuilder.Location = new System.Drawing.Point(18, 244);
+            this.btnFetchXmlBuilder.Location = new System.Drawing.Point(18, 266);
             this.btnFetchXmlBuilder.Name = "btnFetchXmlBuilder";
             this.btnFetchXmlBuilder.Size = new System.Drawing.Size(234, 39);
             this.btnFetchXmlBuilder.TabIndex = 117;
@@ -521,7 +627,7 @@
             this.btnSql4Cds.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSql4Cds.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.SQL4CDS_Icon_20_3;
             this.btnSql4Cds.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSql4Cds.Location = new System.Drawing.Point(17, 199);
+            this.btnSql4Cds.Location = new System.Drawing.Point(17, 221);
             this.btnSql4Cds.Name = "btnSql4Cds";
             this.btnSql4Cds.Size = new System.Drawing.Size(235, 39);
             this.btnSql4Cds.TabIndex = 116;
@@ -535,7 +641,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(15, 125);
+            this.label9.Location = new System.Drawing.Point(15, 147);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(93, 13);
             this.label9.TabIndex = 115;
@@ -545,7 +651,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(15, 98);
+            this.label8.Location = new System.Drawing.Point(15, 120);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 13);
             this.label8.TabIndex = 114;
@@ -555,7 +661,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(15, 71);
+            this.label5.Location = new System.Drawing.Point(15, 93);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 113;
@@ -569,7 +675,7 @@
             this.txtVirtualReportViewName.EntityReference = null;
             this.txtVirtualReportViewName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVirtualReportViewName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.txtVirtualReportViewName.Location = new System.Drawing.Point(108, 120);
+            this.txtVirtualReportViewName.Location = new System.Drawing.Point(108, 142);
             this.txtVirtualReportViewName.LogicalName = "entity";
             this.txtVirtualReportViewName.Margin = new System.Windows.Forms.Padding(2);
             this.txtVirtualReportViewName.Name = "txtVirtualReportViewName";
@@ -585,7 +691,7 @@
             this.txtVirtualLocalizedName.EntityReference = null;
             this.txtVirtualLocalizedName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVirtualLocalizedName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.txtVirtualLocalizedName.Location = new System.Drawing.Point(108, 93);
+            this.txtVirtualLocalizedName.Location = new System.Drawing.Point(108, 115);
             this.txtVirtualLocalizedName.LogicalName = "entity";
             this.txtVirtualLocalizedName.Margin = new System.Windows.Forms.Padding(2);
             this.txtVirtualLocalizedName.Name = "txtVirtualLocalizedName";
@@ -601,7 +707,7 @@
             this.txtVirtualExternalName.EntityReference = null;
             this.txtVirtualExternalName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVirtualExternalName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.txtVirtualExternalName.Location = new System.Drawing.Point(108, 66);
+            this.txtVirtualExternalName.Location = new System.Drawing.Point(108, 88);
             this.txtVirtualExternalName.LogicalName = "entity";
             this.txtVirtualExternalName.Margin = new System.Windows.Forms.Padding(2);
             this.txtVirtualExternalName.Name = "txtVirtualExternalName";
@@ -630,7 +736,7 @@
             this.btnMetadataBrowser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMetadataBrowser.Image = global::Driv.XTB.FinOpsVirtualEntityManager.Properties.Resources.mscrmtools;
             this.btnMetadataBrowser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMetadataBrowser.Location = new System.Drawing.Point(18, 154);
+            this.btnMetadataBrowser.Location = new System.Drawing.Point(18, 176);
             this.btnMetadataBrowser.Name = "btnMetadataBrowser";
             this.btnMetadataBrowser.Size = new System.Drawing.Size(234, 39);
             this.btnMetadataBrowser.TabIndex = 109;
@@ -728,6 +834,16 @@
             this.pictureBox1.TabIndex = 106;
             this.pictureBox1.TabStop = false;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(11, 138);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(276, 13);
+            this.label14.TabIndex = 109;
+            this.label14.Text = "Entity needs to be a valid menu item for deep link to work";
+            // 
             // FinOpsVirtualEntityManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -746,7 +862,7 @@
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.pictureBox6);
             this.Name = "FinOpsVirtualEntityManagerControl";
-            this.Size = new System.Drawing.Size(905, 721);
+            this.Size = new System.Drawing.Size(951, 641);
             this.Load += new System.EventHandler(this.FinOpsVirtualEntityManagerControl_Load);
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
@@ -756,6 +872,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.imgGroupEntities.ResumeLayout(false);
             this.imgGroupEntities.PerformLayout();
+            this.imgGroupDeepLink.ResumeLayout(false);
+            this.imgGroupDeepLink.PerformLayout();
             this.imgBoxSelectedEntity.ResumeLayout(false);
             this.imgBoxSelectedEntity.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -820,5 +938,14 @@
         private System.Windows.Forms.Button btnDataverse;
         private System.Windows.Forms.Button btnFinOps;
         private System.Windows.Forms.ToolTip toolTip;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtVirtualPluralName;
+        private System.Windows.Forms.Label label13;
+        private ImageGroupBox imgGroupDeepLink;
+        private System.Windows.Forms.RichTextBox rtbDeepLink;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog dlgLookupSelectedEntity;
+        private System.Windows.Forms.Button btnLookupSelectedEntity;
+        private System.Windows.Forms.TextBox txtLookupSelectedRecordId;
+        private System.Windows.Forms.LinkLabel lnkInfo;
+        private System.Windows.Forms.Label label14;
     }
 }

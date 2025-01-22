@@ -23,6 +23,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager.Helper
                                 <entity name='entity'>
                                 <attribute name='entityid' />
                                 <attribute name='logicalname' />
+                                <attribute name='entitysetname' />
                                 <attribute name='externalname' />
                                 <attribute name='originallocalizedname' />
                                 <attribute name='reportviewname' />

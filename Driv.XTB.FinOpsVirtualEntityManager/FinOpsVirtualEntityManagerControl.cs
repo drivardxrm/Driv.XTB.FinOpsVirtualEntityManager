@@ -30,6 +30,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         //private Settings mySettings;
         private Settings _globalsettings;
         private Settings _connectionsettings;
+        private IOrganizationService _service;
 
         private EntityCollection _allFinOpsEntities = new EntityCollection();
         private EntityCollection _filteredFinOpsEntities = new EntityCollection();
@@ -128,6 +129,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
                 _selectedFinOpsEntity = null;
                 SetSelectedEntity(Guid.Empty);
                 gridAvailableEntities.DataSource = null;
+                
 
                 ExecuteMethod(RetrieveFinanceAndOperationsIntegrationDetails);
 
@@ -151,6 +153,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             txtVirtualExternalName.OrganizationService = Service;
             txtVirtualLocalizedName.OrganizationService = Service;
             txtVirtualReportViewName.OrganizationService = Service;
+            dlgLookupSelectedEntity.Service = Service;
         }
 
         private void RetrieveFinanceAndOperationsIntegrationDetails()
@@ -281,7 +284,7 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             _selectedFinOpsEntity = selectedEntity != null ? new FinOpsEntityProxy(selectedEntity) : null;
 
 
-
+            
             txtPhysicalName.Entity = _selectedFinOpsEntity?.FinOpsEntityRow;
             
             switchVisible.Checked = _selectedFinOpsEntity?.IsVisible ?? false;
@@ -297,11 +300,27 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
         {
             _selectedVirtualEntityMetadata = Service.GetVirtualEntityMetadataFor(txtPhysicalName.Text);
             txtVirtualLogicalName.Entity = _selectedVirtualEntityMetadata;
+            txtVirtualPluralName.Entity = _selectedVirtualEntityMetadata;
             txtVirtualExternalName.Entity = _selectedVirtualEntityMetadata;
             txtVirtualLocalizedName.Entity = _selectedVirtualEntityMetadata;
             txtVirtualReportViewName.Entity = _selectedVirtualEntityMetadata;
 
             imgGroupVirtual.Enabled = _selectedVirtualEntityMetadata != null;
+            imgGroupDeepLink.Enabled = _selectedVirtualEntityMetadata != null;
+
+            dlgLookupSelectedEntity.LogicalName = txtVirtualLogicalName.Text;
+            txtLookupSelectedRecordId.Text = Guid.Empty.ToString();
+
+            SetDeepLink();
+        }
+
+        private void SetDeepLink()
+        {
+            var deepLink = _selectedVirtualEntityMetadata != null ?
+                    $"{txtFinOpsUrl.Text}/?mi=action:SysEntityNavigation&entityName={txtVirtualPluralName.Text}&entityGuid={txtLookupSelectedRecordId.Text}" :
+                    string.Empty;
+
+            rtbDeepLink.Text = deepLink;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -539,6 +558,28 @@ namespace Driv.XTB.FinOpsVirtualEntityManager
             {
                 MessageBox.Show("Unable to open link that was clicked.");
             }
+        }
+
+        private void btnLookupSelectedEntity_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            switch (dlgLookupSelectedEntity.ShowDialog(this))
+            {
+                case DialogResult.OK:
+                    txtLookupSelectedRecordId.Text = dlgLookupSelectedEntity.Entity?.Id.ToString() ?? Guid.Empty.ToString();
+                    SetDeepLink();
+                    break;
+                case DialogResult.Abort:
+                    //txtLookupPluginType.Entity = null;
+                    break;
+            }
+
+            Cursor = Cursors.Default;
+        }
+
+        private void lnkInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/user-interface/create-deep-links?WT.mc_id=DX-MVP-5004959");
         }
     }
 }
