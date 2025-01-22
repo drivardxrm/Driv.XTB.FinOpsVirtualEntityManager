@@ -29,3 +29,6 @@ https://itmustbecode.com/finance-and-operations-virtual-entity-manager-for-xrmto
 
 ![metadatabrowsercompanion](https://github.com/drivardxrm/Driv.XTB.FinOpsVirtualEntityManager/assets/38399134/f427f54c-3c70-4c5e-9ee2-9cbccabcdaca)
 
+![image](https://github.com/user-attachments/assets/59147f0d-8561-4d2e-8559-303cceb4dd76)
+
+
