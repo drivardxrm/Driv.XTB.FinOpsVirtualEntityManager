@@ -17,6 +17,7 @@ https://itmustbecode.com/finance-and-operations-virtual-entity-manager-for-xrmto
 1. 🔄Refresh entity metadata (if fields are modified in FinOps side)
 1. 🤝Integrated with the [Metadata Browser Companion](https://github.com/MscrmTools/MsCrmTools.MetadataBrowser) from [MscrmTools](https://github.com/MscrmTools) to explore virtual entities attributes
 2. 🤝Integrated with [Sql4CDS](https://github.com/MarkMpn/Sql4Cds) by [MarkMpn](https://github.com/MarkMpn) and [FetchXMLBuilder](https://github.com/rappen/FetchXMLBuilder) by [rappen](https://github.com/rappen) to explore the data from a selected virtual entity
+3. 🔗Create Deep Links to records. (Note. entity must be a vaslid menu item) ref. [documentation](https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/user-interface/create-deep-links?WT.mc_id=DX-MVP-5004959)
 
 
 ![image](https://github.com/drivardxrm/Driv.XTB.FinOpsVirtualEntityManager/assets/38399134/0d7ac159-5496-42d8-9ed0-10aa24c26f15)
